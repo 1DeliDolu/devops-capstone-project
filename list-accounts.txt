@@ -1,0 +1,3 @@
+Kanban screenshot evidence placeholder
+Story: List all accounts in the service
+Screenshot file name: list-accounts.jpeg (or list-accounts.png)
