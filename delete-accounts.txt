@@ -1,0 +1,3 @@
+Kanban screenshot evidence placeholder
+Story: Delete an account from the service
+Screenshot file name: delete-accounts.jpeg (or delete-accounts.png)
