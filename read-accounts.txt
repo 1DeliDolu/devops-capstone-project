@@ -1,3 +1,0 @@
-Kanban screenshot evidence placeholder
-Story: Read an account from the service
-Screenshot file name: read-accounts.jpeg (or read-accounts.png)

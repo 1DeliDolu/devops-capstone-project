@@ -1,3 +1,0 @@
-Kanban screenshot evidence placeholder
-Story: Update an account in the service
-Screenshot file name: update-accounts.jpeg (or update-accounts.png)
