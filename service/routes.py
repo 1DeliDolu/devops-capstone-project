@@ -53,13 +53,8 @@ def create_accounts():
     account.create()
 
     message = account.serialize()
-<<<<<<< HEAD
-    # Set Location header to the new resource
-    location_url = url_for("get_accounts", account_id=account.id, _external=True)
-=======
     location_url = url_for("get_accounts", account_id=account.id, _external=True)
 
->>>>>>> list-accounts
     return make_response(
         jsonify(message),
         status.HTTP_201_CREATED,
@@ -70,23 +65,6 @@ def create_accounts():
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
-<<<<<<< HEAD
-
-
-@app.route("/accounts", methods=["GET"])
-def list_accounts():
-    """
-    List all Accounts
-    This endpoint will list all Accounts
-    """
-    app.logger.info("Request to list Accounts")
-
-    accounts = Account.all()
-    account_list = [account.serialize() for account in accounts]
-
-    app.logger.info("Returning [%s] accounts", len(account_list))
-    return jsonify(account_list), status.HTTP_200_OK
-=======
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """Returns all Accounts"""
@@ -97,40 +75,20 @@ def list_accounts():
         for acct in accounts
     ]
     return jsonify(results), status.HTTP_200_OK
->>>>>>> list-accounts
 
 
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
-<<<<<<< HEAD
-
-
-@app.route("/accounts/<int:account_id>", methods=["GET"])
-def get_accounts(account_id):
-    """
-    Reads an Account
-    This endpoint will read an Account based the account_id that is requested
-    """
-    app.logger.info("Request to read an Account with id: %s", account_id)
-
-=======
 @app.route("/accounts/<int:account_id>", methods=["GET"])
 def get_accounts(account_id):
     """Retrieves a single Account"""
->>>>>>> list-accounts
     account = Account.find(account_id)
     if not account:
         abort(
             status.HTTP_404_NOT_FOUND,
-<<<<<<< HEAD
-            f"Account with id [{account_id}] could not be found.",
-        )
-
-=======
             f"Account with id '{account_id}' was not found.",
         )
->>>>>>> list-accounts
     return jsonify(account.serialize()), status.HTTP_200_OK
 
 
@@ -143,22 +101,6 @@ def update_accounts(account_id):
     app.logger.info("Request to update Account with id: %s", account_id)
     check_content_type("application/json")
 
-<<<<<<< HEAD
-
-@app.route("/accounts/<int:account_id>", methods=["PUT"])
-def update_accounts(account_id):
-    """
-    Update an Account
-    This endpoint will update an Account based on the posted data
-    """
-    app.logger.info("Request to update an Account with id: %s", account_id)
-
-    account = Account.find(account_id)
-    if not account:
-        abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] could not be found.")
-
-    account.deserialize(request.get_json())
-=======
     account = Account.find(account_id)
     if not account:
         abort(
@@ -171,7 +113,6 @@ def update_accounts(account_id):
         abort(status.HTTP_400_BAD_REQUEST, "Invalid JSON body")
 
     account.deserialize(data)
->>>>>>> list-accounts
     account.update()
 
     return jsonify(account.serialize()), status.HTTP_200_OK
@@ -180,22 +121,6 @@ def update_accounts(account_id):
 ######################################################################
 # DELETE AN ACCOUNT
 ######################################################################
-<<<<<<< HEAD
-
-
-@app.route("/accounts/<int:account_id>", methods=["DELETE"])
-def delete_accounts(account_id):
-    """
-    Delete an Account
-    This endpoint will delete an Account based on the account_id that is requested
-    """
-    app.logger.info("Request to delete an Account with id: %s", account_id)
-
-    account = Account.find(account_id)
-    if account:
-        account.delete()
-
-=======
 @app.route("/accounts/<int:account_id>", methods=["DELETE"])
 def delete_accounts(account_id):
     """Deletes an Account"""
@@ -203,7 +128,6 @@ def delete_accounts(account_id):
     account = Account.find(account_id)
     if account:
         account.delete()
->>>>>>> list-accounts
     return "", status.HTTP_204_NO_CONTENT
 
 
