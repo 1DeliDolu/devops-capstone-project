@@ -1,5 +1,5 @@
 #
-# This pipeline needs the following tasks from Tekton Hub / local tasks
+# This pipeline needs the following tasks
 #   - git-clone
 #   - flake8
 #   - nose
@@ -62,7 +62,7 @@ spec:
         name: nose
       params:
         - name: database_uri
-          value: "sqlite:///test.db"
+          value: ""   # boş => Task secret'tan Postgres URI üretir
         - name: args
           value: "-v --with-spec --spec-color"
       runAfter:
